@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assetes\TabIco\icons-Bank.png" />
+    <None Remove="Assetes\TabIco\icons-Graph.png" />
+    <None Remove="Assetes\TabIco\icons-Home.png" />
+    <None Remove="Assetes\TabIco\icons-Menu.png" />
+    <None Remove="Assetes\TabIco\icons-Windows.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assetes\TabIco\icons-Bank.png" />
+    <Content Include="Assetes\TabIco\icons-Graph.png" />
+    <Content Include="Assetes\TabIco\icons-Home.png" />
+    <Content Include="Assetes\TabIco\icons-Menu.png" />
+    <Content Include="Assetes\TabIco\icons-Windows.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="OurBudgets.Views.HomeTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OurBudgets.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="200">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition SharedSizeGroup="Window"/>
+            <RowDefinition SharedSizeGroup="Home"/>
+            <RowDefinition SharedSizeGroup="Bank"/>
+            <RowDefinition SharedSizeGroup="Graph"/>
+            <RowDefinition SharedSizeGroup="Menu"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="OurBudget" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Padding="5,5,5,40"/>
+            <Image Source="\Assetes\TabIco\icons-Windows.png" HorizontalAlignment="Stretch" Stretch="None" Width="Auto"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Button x:Name="HomeButton" Height="40" Width="40" HorizontalAlignment="Center"/>
+            <Image Source="\Assetes\TabIco\icons-Home.png" HorizontalAlignment="Stretch" Stretch="None" Width="Auto"/>
+        </StackPanel>
+        
+    </Grid>
+
+</UserControl>
