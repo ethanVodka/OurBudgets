@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:OurBudgets.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}" x:Class="OurBudgets.Views.MainWindow"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="800" Width="1200" >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="1000"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="Beige">
+            <Label Content="HOME" HorizontalAlignment="Center"
+                   FontSize="50" FontWeight="Bold" Padding="0,20,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Background="Bisque">
+                <Label Content="残高 \" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center" Padding="50,0,0,0"/>
+                <Label Content="{Binding Balance}" FontSize="40" FontWeight="UltraBold" HorizontalAlignment="Center" Padding="30,0,0,0"/>
+                
+                <Label Content="予算 \" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center" Padding="350,0,0,0"/>
+                <Label Content="{Binding Budget}" FontSize="40" FontWeight="UltraBold" HorizontalAlignment="Center" Padding="30,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+    </Grid>
+</Window>
