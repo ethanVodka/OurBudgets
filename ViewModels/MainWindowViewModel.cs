@@ -1,15 +1,27 @@
 ﻿using OurBudgets.Models;
 using OurBudgets.Repositorys;
+using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System.Collections.Generic;
 
 namespace OurBudgets.ViewModels
 {
-    public class MainWindowViewModel : BindableBase, IExpenseModels<Expense>
+    public class MainWindowViewModel : BindableBase
     {
-        public MainWindowViewModel()
-        {
+        private readonly IRegionManager regionManager;
 
+        public MainWindowViewModel(IRegionManager _regionManager)
+        {
+            regionManager = _regionManager;
+            ShowSettingBudgetView = new DelegateCommand(ShowSettingBudgetViewExecute);
+
+            //...........
+            //メインウィンドウ呼び出し時処理
+            //
+            //画面表示データ取得
+            //ユーザ情報、予算、予算から残高計算,,,,
+            //...........
         }
 
         //タイトルプロパティ
@@ -21,31 +33,32 @@ namespace OurBudgets.ViewModels
         }
 
         //残高プロパティ
-        private int balance;
+        private string balance = "1900000";
 
-        public int Balance 
-        { 
-            get => balance; 
+        public string Balance
+        {
+            get => balance;
             set => SetProperty(ref balance, value);
         }
 
         //予算プロパティ
-        private int budget;
+        private string budget = "1000000";
 
-        public int Budget 
-        { 
-            get => budget; 
-            set => SetProperty(ref budget, value); 
-        }
-
-        public Expense GetExpense(int id)
+        public string Budget
         {
-            throw new System.NotImplementedException();
+            get => budget;
+            set => SetProperty(ref budget, value);
         }
 
-        public List<Expense> GetExpenses(int id)
+        public DelegateCommand ShowSettingBudgetView { get; }
+
+        private void ShowSettingBudgetViewExecute()
         {
-            throw new System.NotImplementedException();
+            //...........
+            //予算設定view 呼び出し処理
+            //Viewまだ作成してない
+            //...........
         }
+
     }
 }

@@ -30,3 +30,4 @@ C:\Users\pikas\OneDrive\デスクトップ\OurBudgets\bin\Debug\net6.0-windows\M
 C:\Users\pikas\OneDrive\デスクトップ\OurBudgets\bin\Debug\net6.0-windows\MaterialDesignColors.dll
 C:\Users\pikas\OneDrive\デスクトップ\OurBudgets\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Users\pikas\OneDrive\デスクトップ\OurBudgets\bin\Debug\net6.0-windows\MaterialDesignThemes.MahApps.dll
+C:\Users\pikas\OneDrive\デスクトップ\OurBudgets\obj\Debug\net6.0-windows\OurBudgets_MarkupCompile.lref
