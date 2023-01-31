@@ -1,26 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Assetes\TabIco\icons-Bank.png" />
-    <None Remove="Assetes\TabIco\icons-Graph.png" />
-    <None Remove="Assetes\TabIco\icons-Home.png" />
-    <None Remove="Assetes\TabIco\icons-Menu.png" />
-    <None Remove="Assetes\TabIco\icons-Windows.png" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.7.1" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.7" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Assetes\TabIco\icons-Bank.png" />
-    <Content Include="Assetes\TabIco\icons-Graph.png" />
-    <Content Include="Assetes\TabIco\icons-Home.png" />
-    <Content Include="Assetes\TabIco\icons-Menu.png" />
-    <Content Include="Assetes\TabIco\icons-Windows.png" />
-  </ItemGroup>
-
 </Project>
