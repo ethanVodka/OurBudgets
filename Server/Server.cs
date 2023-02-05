@@ -20,6 +20,7 @@ namespace OurBudgets.Server
             //
             //
         }
+
         public void RecieveUserIncome(int userid, int income, Data.IncomeKind kind, string date, string source)
         {
             //
