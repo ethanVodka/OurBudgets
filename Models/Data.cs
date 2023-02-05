@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace OurBudgets.Models
 {
-    public partial class Expense
+    public class Data
     {
-        public enum ExpenseType
+        public enum IncomeKind
+        {
+            Undefine,
+            Payee,
+            Send
+        }
+
+        public enum ExpenseKind
         {
             Undefine,
             Loarn,
@@ -26,9 +33,18 @@ namespace OurBudgets.Models
             Hobbies
         }
 
-        public ExpenseType Kind { get; set; }
-        public int Value { get; set; }
-        public DateTime Date { get; set; }
-        public string Destination { get; set; }
+        public enum Span
+        {
+            Week,
+            Month,
+            Year
+        }
+
+        public enum OutputType
+        {
+            Graoh,
+            Text,
+            DataGrid
+        }
     }
 }
