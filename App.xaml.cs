@@ -1,4 +1,5 @@
-﻿using OurBudgets.Views;
+﻿using OurBudgets.ViewModels;
+using OurBudgets.Views;
 using Prism.Ioc;
 using System.Windows;
 
@@ -16,7 +17,7 @@ namespace OurBudgets
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterDialog<SetIncomeView, SetIncomeViewModel>();
         }
     }
 }
