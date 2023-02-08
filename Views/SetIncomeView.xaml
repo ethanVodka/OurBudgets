@@ -4,72 +4,88 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
+    <Grid Width="300" Height="280">
 
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
 
-            <Label Content="収入入力"
+
+        <Label Content="収入入力"
+                   Grid.Row="0"
+                   Grid.Column="1"
                    FontSize="40"
                    HorizontalAlignment="Center"
                    Foreground="Black"/>
 
-            <StackPanel Orientation="Horizontal">
-
-                <Label Content="金額"/>
-
-                <TextBlock Margin="30,0,0,0" Width="100"/>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-
-                <Label Content="収入源"/>
-
-                <TextBlock Margin="30,0,0,0" Width="100"/>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-
-                <Label Content="種別"/>
-
-                <TextBlock Margin="30,0,0,0" Width="100"/>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-
-                <Label Name="KindComboBox"  Content="金額"/>
-
-                <ComboBox ItemsSource="{Binding Kinds}" 
-                          SelectedValuePath="Value"
-                          DisplayMemberPath="DisplayValue" 
-                          Margin="30,0,0,0" Width="100"
-                          SelectedItem="{Binding SelectedKind, Mode=TwoWay}">　
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName ="SelectionChanged">
-                            <prism:InvokeCommandAction Command ="{Binding ProductsSelectionChanged}" 
-                                                       TriggerParameterPath=" AddedItems"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers >
-                </ComboBox>
-
-            </StackPanel>
+        <Label Content="金額"
+               Grid.Row="1"
+               Grid.Column="0"/>
+        <TextBox  Width="200" 
+                  Grid.Row="1" 
+                  Grid.Column="1"/>
 
 
-            <StackPanel Orientation="Horizontal">
+        <Label Content="収入源" 
+               Grid.Row="2"
+               Grid.Column="0"/>
+        <TextBox  Width="200"
+                  Grid.Row="2"
+                  Grid.Column="1"/>
 
-                <Label Content="名前"/>
 
-                <TextBlock Margin="10,0,0,0" Width="50"/>
+        <Label Content="種別"
+               Grid.Row="3"
+               Grid.Column="0"/>
+        <TextBox  Width="200"
+                  Grid.Row="3"
+                  Grid.Column="1"/>
 
-                <Label Content="ID"/>
 
-                <TextBlock Margin="10,0,0,0" Width="50"/>
+        <Label Name="KindComboBox"  Content="金額"
+               Grid.Row="4"
+               Grid.Column="0"/>
+        <ComboBox Name="IncomeBox"
+                  ItemsSource="{Binding Kinds}" 
+                  SelectedValuePath="Value"
+                  DisplayMemberPath="DisplayValue" 
+                  Width="200" 
+                  Grid.Row="4"
+                  Grid.Column="1">
+        </ComboBox>
 
-            </StackPanel>
 
-        </StackPanel>
+        <Label Content="名前"
+               Grid.Row="5"
+               Grid.Column="0"/>
+        <TextBox Width="200"
+                 Grid.Row="5"
+                 Grid.Column="1"/>
+
+        <Label Content="ID"
+               Grid.Row="6"
+               Grid.Column="0"/>
+        <TextBox Width="200"
+                 Grid.Row="6"
+                 Grid.Column="1"/>
+
+        <Button x:Name="OKButton"
+                Content="OK"
+                Grid.Row="7"
+                Grid.Column="1"
+                Width="100"
+                HorizontalAlignment="Right"/>
 
     </Grid>
 </UserControl>
