@@ -9,32 +9,39 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="Our Budgets" Height="800" Width="1200" >
     <Grid>
-
+        <!-- グリッド定義 -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="1000"/>
         </Grid.ColumnDefinitions>
 
+        <!-- 左パネル -->
         <StackPanel Grid.Column="0" Background="Beige">
             <Label Content="HOME" HorizontalAlignment="Center"
                    FontSize="50" FontWeight="Bold" Padding="0,20,0,0"/>
 
             <Button Content="収入"
-                    Command="{Binding ShowSettingIncomeView}"
+                    Command="{Binding ShowSetIncomeView}"
                     FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Width="150" Height="50" Margin="0,50,0,0" BorderBrush="#FF1523F3"/>
+                    Width="150" Height="50" Margin="0,50,0,0"/>
 
             <Button Content="支出"
-                    Command="{Binding ShowSettingExpenseView}"
+                    Command="{Binding ShowSetExpenseView}"
                     FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Width="150" Height="50" Margin="0,50,0,0" BorderBrush="#FF1523F3"/>
+                    Width="150" Height="50" Margin="0,50,0,0"/>
+
+
+            <Button Content="収支表示"
+                    Command="{Binding ShowUserBudgetsView}"
+                    FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Width="150" Height="50" Margin="0,50,0,0"/>
+
         </StackPanel>
 
+        <!-- 右パネル -->
         <StackPanel Grid.Column="1">
-            
+            <ContentControl prism:RegionManager.RegionName="ContentRegion" Opacity="0.01" >
+            </ContentControl>
         </StackPanel>
-
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" Opacity="0.01" >
-        </ContentControl>
     </Grid>
 </Window>
