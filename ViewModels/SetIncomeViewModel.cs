@@ -15,7 +15,7 @@ namespace OurBudgets.ViewModels
             foreach (object value in dayOfWeekValues)
             {
                 // フィールドのオブジェクトと数値（int）に変換した値を出力
-                kinds.Add(new ComboBoxViewModel((int)value, value.ToString()));
+                incomeKinds.Add(new ComboBoxViewModel((int)value, value.ToString()));
             }
         }
 
@@ -24,7 +24,7 @@ namespace OurBudgets.ViewModels
         private string id;
         private string incomeVlue;
         private string source;
-        private ObservableCollection<ComboBoxViewModel> kinds = new ObservableCollection<ComboBoxViewModel>();
+        private ObservableCollection<ComboBoxViewModel> incomeKinds = new ObservableCollection<ComboBoxViewModel>();
         #endregion
 
         #region Property
@@ -64,10 +64,10 @@ namespace OurBudgets.ViewModels
         /// コンボボックスリスト
         /// 中身はコンストラクターでインスタンス生成時に初期設定行う
         /// </summary>
-        public ObservableCollection<ComboBoxViewModel> Kinds
+        public ObservableCollection<ComboBoxViewModel> IncomeKinds
         {
-            get { return kinds; }
-            set { SetProperty(ref kinds, value); }
+            get { return incomeKinds; }
+            set { SetProperty(ref incomeKinds, value); }
         }
         #endregion
 

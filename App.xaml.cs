@@ -18,6 +18,7 @@ namespace OurBudgets
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterDialog<SetIncomeView, SetIncomeViewModel>();
+            containerRegistry.RegisterDialog<SetExpenseView, SetExpenseViewModel>();
         }
     }
 }

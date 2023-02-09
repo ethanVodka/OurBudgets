@@ -57,7 +57,7 @@
                Grid.Row="4"
                Grid.Column="0"/>
         <ComboBox Name="IncomeBox"
-                  ItemsSource="{Binding Kinds}" 
+                  ItemsSource="{Binding IncomeKinds}" 
                   SelectedValuePath="Value"
                   DisplayMemberPath="DisplayValue" 
                   Width="200" 

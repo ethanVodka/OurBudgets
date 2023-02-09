@@ -43,7 +43,7 @@ namespace OurBudgets.ViewModels
         //支出入力View
         private void ShowSetExpenseViewExcute()
         {
-
+            dialogService.ShowDialog(nameof(SetExpenseView), null, null);
         }
         //収支情報表示View
         private void ShowUserBudgetsViewExcute()
