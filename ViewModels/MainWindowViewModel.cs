@@ -23,8 +23,8 @@ namespace OurBudgets.ViewModels
             //...........
             dialogService= _dialogService;
             
-            ShowSetIncomeView = new DelegateCommand(ShowSetIncomeViewExecute);
-            ShowSetExpenseView =new DelegateCommand(ShowSetExpenseViewExcute);
+            ShowSetIncomeView   = new DelegateCommand(ShowSetIncomeViewExecute);
+            ShowSetExpenseView  = new DelegateCommand(ShowSetExpenseViewExcute);
             ShowUserBudgetsView = new DelegateCommand(ShowUserBudgetsViewExcute);
         }
 

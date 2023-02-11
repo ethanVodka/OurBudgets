@@ -16,7 +16,8 @@ namespace OurBudgets.ViewModels
         //自身のコンストラクターへインスタンス追加で渡す
         public SetExpenseViewModel() : this(new MessageService())
         {
-
+            ExpenseKindSelectionChanged = new DelegateCommand<object[]>(ExpenseKindSelectionChangeExcute);
+            OKButtonClick = new DelegateCommand(OKButtonClickExcute);
         }
 
         public SetExpenseViewModel(IMessageService _messageService)
@@ -38,6 +39,9 @@ namespace OurBudgets.ViewModels
         private string expenseVlue;
         private string destination;
         private ObservableCollection<ComboBoxViewModel> expenseKinds = new();
+        private string selectedText = "--";
+        private ComboBoxViewModel selectedExpenseKind = null;
+        private DateTime date;
         #endregion
 
         #region Property
@@ -82,7 +86,131 @@ namespace OurBudgets.ViewModels
             get { return expenseKinds; }
             set { SetProperty(ref expenseKinds, value); }
         }
+        /// <summary>
+        /// コンボボックス選択種別表示テキスト
+        /// </summary>
+        public string SelectedText
+        {
+            get { return selectedText; }
+            set { SetProperty(ref selectedText, value); }
+        }
+        public ComboBoxViewModel SelectedExpenseKind
+        {
+            get { return selectedExpenseKind; }
+            set { SetProperty(ref selectedExpenseKind, value); }
+        }
+        /// <summary>
+        /// 日付取得
+        /// </summary>
+        public DateTime Date
+        {
+            get { return date; }
+            set { SetProperty(ref date, value); }
+        }
+
+        //Delegate
+        public DelegateCommand<object[]> ExpenseKindSelectionChanged { get; }
+        public DelegateCommand OKButtonClick { get; }
         #endregion
+
+        /// <summary>
+        /// コンボボックス選択変更処理
+        /// </summary>
+        /// <param name="selectItems">選択されたコンボボックスパラメータ</param>
+        private void ExpenseKindSelectionChangeExcute(object[] selectItems)
+        {
+            try
+            {
+                ComboBoxViewModel selectedKind = selectItems[0] as ComboBoxViewModel;
+                SelectedText = selectedKind.Value + " : " + selectedKind.DisplayValue;
+            }
+            catch (Exception e)
+            {
+                messageService.Error(e.Message);
+            }
+        }
+
+        private void OKButtonClickExcute()
+        {
+            try
+            {
+                if (CheckInputExpenseData())
+                {
+                    if (messageService.Question("入力情報送信いたします\nよろしいですか？") == System.Windows.MessageBoxResult.OK)
+                    {
+                        RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
+                    }
+                    else
+                    {
+                        //入力に戻る
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                messageService.Error(e.Message);
+            }
+        }
+
+        private bool CheckInputExpenseData()
+        {
+            try
+            {
+                //金額入力確認
+                if (ExpenseValue == null)
+                {
+                    messageService.Information("金額を入力してください");
+                    return false;
+                }
+                else
+                {
+                    if (!int.TryParse(ExpenseValue, out int value))
+                    {
+                        messageService.Information("金額は半角数字で入力してください");
+                        return false;
+                    }
+                }
+                //収入源入力確認
+                if (Destination == null)
+                {
+                    messageService.Information("支出先を入力してください");
+                    return false;
+                }
+                //収入種別入力確認
+                if (SelectedExpenseKind == null)
+                {
+                    messageService.Information("支出種別を選択してください");
+                    return false;
+                }
+                //名前入力確認
+                if (Name == null)
+                {
+                    messageService.Information("名前を入力してください");
+                    return false;
+                }
+                //ID入力確認
+                if (Id == null)
+                {
+                    messageService.Information("IDを入力してください");
+                    return false;
+                }
+                else
+                {
+                    if (!int.TryParse(Id, out int id))
+                    {
+                        messageService.Information("IDは半角数字で入力してください");
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                messageService.Error(e.Message);
+                return false;
+            }
+        }
 
         #region DialogInterfaceMethods
         /// <summary>

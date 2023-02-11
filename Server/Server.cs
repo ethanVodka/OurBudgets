@@ -21,7 +21,7 @@ namespace OurBudgets.Server
             //
         }
 
-        public void RecieveUserIncome(int userid, int income, Data.IncomeKind kind, string date, string source)
+        public void RecieveUserIncome(int userid, int income, Data.IncomeKind kind, DateTime date, string source)
         {
             //
             //
@@ -30,8 +30,7 @@ namespace OurBudgets.Server
             //
         }
 
-
-        public void RecieveUserExpense(int userid, int expense, Data.IncomeKind kind, string date, string destination)
+        public void RecieveUserExpense(int userid, int expense, Data.IncomeKind kind, DateTime date, string destination)
         {
             //
             //

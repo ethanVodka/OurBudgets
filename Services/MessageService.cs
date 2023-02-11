@@ -14,19 +14,19 @@ namespace OurBudgets.Services
     {
         public MessageBoxResult Question(string message)
         {
-            return MessageBox.Show($"Question: {message}", "確認", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            return MessageBox.Show($"Question:\n\n{message}", "確認", MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
         public MessageBoxResult Information(string message)
         {
-            return MessageBox.Show($"Information: {message}","インフォーメーション", MessageBoxButton.OK, MessageBoxImage.Information);
+            return MessageBox.Show($"Information:\n\n{message}","インフォーメーション", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public MessageBoxResult Warning(string message)
         {
-            return MessageBox.Show($"Warning: {message}", "警告", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            return MessageBox.Show($"Warning:\n\n{message}", "警告", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
         }
         public MessageBoxResult Error(string message)
         {
-            return MessageBox.Show($"Error: {message}", "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+            return MessageBox.Show($"Error:\n\n{message}", "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         public void ShowDialog(string message)
         {

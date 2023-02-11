@@ -26,7 +26,7 @@ namespace OurBudgets.User
         /// <param name="kind">収入種別</param>
         /// <param name="date">収入日付</param>
         /// <param name="source">収入元</param>
-        public void SendIncome(int userid, int income, Data.IncomeKind kind, string date, string source)
+        public void SendIncome(int userid, int income, Data.IncomeKind kind, DateTime date, string source)
         {
             //
             //
@@ -42,7 +42,7 @@ namespace OurBudgets.User
         /// <param name="kind">支出種別</param>
         /// <param name="date">支出日付</param>
         /// <param name="destination">支出先</param>
-        public void SendExpense(int userid, int expense, Data.IncomeKind kind, string date, string destination)
+        public void SendExpense(int userid, int expense, Data.IncomeKind kind, DateTime date, string destination)
         {
             //
             //

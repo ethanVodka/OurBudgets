@@ -107,6 +107,9 @@ namespace OurBudgets.ViewModels
             get { return selectedIncomeKind; }
             set { SetProperty(ref selectedIncomeKind, value); }
         }
+        /// <summary>
+        /// 日付取得
+        /// </summary>
         public DateTime Date
         {
             get { return date; }
@@ -116,13 +119,12 @@ namespace OurBudgets.ViewModels
         //Delegate
         public DelegateCommand<object[]> IncomeKindSelectionChanged { get; }
         public DelegateCommand OKButtonClick { get; }
-
         #endregion
 
         /// <summary>
         /// コンボボックス選択変更処理
         /// </summary>
-        /// <param name="selectItems"></param>
+        /// <param name="selectItems">選択されたコンボボックスパラメータ</param>
         private void IncomeKindSelectionChangedExecute(object[] selectItems)
         {
             try
@@ -142,7 +144,7 @@ namespace OurBudgets.ViewModels
         {
             try
             {
-                if (CheckInputData())
+                if (CheckInputIncomeData())
                 {
                     if (messageService.Question("入力情報送信いたします\nよろしいですか？") == System.Windows.MessageBoxResult.OK) 
                     {
@@ -160,7 +162,7 @@ namespace OurBudgets.ViewModels
             }
         }
 
-        private bool CheckInputData()
+        private bool CheckInputIncomeData()
         {
             try
             {
