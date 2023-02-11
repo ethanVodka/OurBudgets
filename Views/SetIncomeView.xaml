@@ -23,40 +23,49 @@
 
 
         <Label Content="収入入力"
-                   Grid.Row="0"
-                   Grid.Column="1"
-                   FontSize="40"
-                   HorizontalAlignment="Center"
-                   Foreground="Black"/>
+               Grid.Row="0"
+               Grid.Column="1"
+               FontSize="40"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Foreground="Black"/>
 
         <Label Content="金額"
+               FontSize="18" FontWeight="Bold"
                Grid.Row="1"
                Grid.Column="0"/>
         <TextBox  Width="200" 
+                  FontSize="19"
                   Grid.Row="1" 
                   Grid.Column="1"/>
 
 
-        <Label Content="収入源" 
+        <Label Content="収入源"
+               FontSize="18" FontWeight="Bold"
                Grid.Row="2"
                Grid.Column="0"/>
         <TextBox  Width="200"
+                  FontSize="19"
                   Grid.Row="2"
                   Grid.Column="1"/>
 
 
         <Label Content="種別"
+               FontSize="18" FontWeight="Bold"
                Grid.Row="3"
                Grid.Column="0"/>
         <TextBox  Width="200"
+                  FontSize="19"
                   Grid.Row="3"
                   Grid.Column="1"/>
 
 
         <Label Name="KindComboBox"  Content="金額"
+               FontSize="18" FontWeight="Bold"
                Grid.Row="4"
                Grid.Column="0"/>
         <ComboBox Name="IncomeBox"
+                  FontSize="19"
                   ItemsSource="{Binding IncomeKinds}" 
                   SelectedValuePath="Value"
                   DisplayMemberPath="DisplayValue" 
@@ -67,20 +76,25 @@
 
 
         <Label Content="名前"
+               FontSize="18" FontWeight="Bold"
                Grid.Row="5"
                Grid.Column="0"/>
         <TextBox Width="200"
+                 FontSize="19"
                  Grid.Row="5"
                  Grid.Column="1"/>
 
         <Label Content="ID"
+               FontSize="18" FontWeight="Bold"
                Grid.Row="6"
                Grid.Column="0"/>
         <TextBox Width="200"
+                 FontSize="19"
                  Grid.Row="6"
                  Grid.Column="1"/>
 
         <Button x:Name="OKButton"
+                FontSize="19"
                 Content="OK"
                 Grid.Row="7"
                 Grid.Column="1"

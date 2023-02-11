@@ -24,7 +24,7 @@ namespace OurBudgets.ViewModels
         private string id;
         private string incomeVlue;
         private string source;
-        private ObservableCollection<ComboBoxViewModel> incomeKinds = new ObservableCollection<ComboBoxViewModel>();
+        private ObservableCollection<ComboBoxViewModel> incomeKinds = new();
         #endregion
 
         #region Property
