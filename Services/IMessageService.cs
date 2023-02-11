@@ -12,9 +12,10 @@ namespace OurBudgets.Services
     /// </summary>
     public interface IMessageService
     {
-        void ShowDialog(string message);
-        MessageBoxResult Question(string message);
-        MessageBoxResult Error(string message);
-        MessageBoxResult Warning(string message);
+        public void ShowDialog(string message);
+        public MessageBoxResult Information(string message);
+        public MessageBoxResult Question(string message);
+        public MessageBoxResult Error(string message);
+        public MessageBoxResult Warning(string message);
     }
 }

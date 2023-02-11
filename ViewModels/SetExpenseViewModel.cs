@@ -11,7 +11,7 @@ namespace OurBudgets.ViewModels
 {
     public class SetExpenseViewModel : BindableBase, IDialogAware
     {
-        IMessageService messageService;
+        readonly IMessageService messageService;
 
         //自身のコンストラクターへインスタンス追加で渡す
         public SetExpenseViewModel() : this(new MessageService())

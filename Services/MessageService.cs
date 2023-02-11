@@ -16,6 +16,10 @@ namespace OurBudgets.Services
         {
             return MessageBox.Show($"Question: {message}", "確認", MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
+        public MessageBoxResult Information(string message)
+        {
+            return MessageBox.Show($"Information: {message}","インフォーメーション", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
         public MessageBoxResult Warning(string message)
         {
             return MessageBox.Show($"Warning: {message}", "警告", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
