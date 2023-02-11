@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using OurBudgets.Services;
+using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,15 @@ namespace OurBudgets.ViewModels
 {
     public class SetIncomeViewModel : BindableBase, IDialogAware
     {
-        public SetIncomeViewModel()
+        IMessageService messageService;
+
+        //自身のコンストラクターへインスタンス追加で渡す
+        public SetIncomeViewModel() : this(new MessageService())
+        {
+
+        }
+
+        public SetIncomeViewModel(IMessageService _messageService)
         {
             //コンボボックスに列挙型の文字列を入れておく
             Array dayOfWeekValues = Enum.GetValues(typeof(Models.Data.IncomeKind));
@@ -17,6 +26,8 @@ namespace OurBudgets.ViewModels
                 // フィールドのオブジェクトと数値（int）に変換した値を出力
                 incomeKinds.Add(new ComboBoxViewModel((int)value, value.ToString()));
             }
+
+            this.messageService = _messageService;
         }
 
         #region Field
@@ -94,7 +105,7 @@ namespace OurBudgets.ViewModels
         /// </summary>
         public void OnDialogClosed()
         {
-            //..
+           //..
         }
         /// <summary>
         /// ダイアログ起動時処理
