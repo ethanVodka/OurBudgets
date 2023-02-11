@@ -11,12 +11,13 @@ namespace OurBudgets.Server
 {
     public class UserExpense
     {
-        public UserExpense(int income, ExpenseKind kind, DateTime date, string desination) 
+        public UserExpense(int income, ExpenseKind kind, DateTime date, string destination)
         {
-            
-            //コンストラクター
-
-        }   
+            Value = income;
+            Kind = kind;
+            Date = date;
+            Destination = destination;
+        }
 
         public ExpenseKind Kind { get; set; }
         public int Value { get; set; }
@@ -24,10 +25,31 @@ namespace OurBudgets.Server
         public string Destination { get; set; }
 
 
-        //複数支出取得
-        public bool GetExpense(Data.Span span)
+        //Todayから引数であるSpanの区間での支出データならtrueをそうでなければfalseを出力
+        public bool GetExpense(Span span)
         {
-            return true;
+            DateTime tmp = DateTime.Today;
+
+            switch (span)
+            {
+                case Span.Week:
+                    if (Date >= tmp.AddDays(-7))
+                        return true;
+                    break;
+
+                case Span.Month:
+                    if (Date >= tmp.AddMonths(-1))
+                        return true;
+                    break;
+
+                case Span.Year:
+                    if (Date >= tmp.AddYears(-1))
+                        return true;
+                    break;
+            }
+
+            return false;
+
         }
     }
 }
