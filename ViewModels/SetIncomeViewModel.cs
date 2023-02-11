@@ -128,7 +128,7 @@ namespace OurBudgets.ViewModels
             try
             {
                 ComboBoxViewModel selectedKind = selectItems[0] as ComboBoxViewModel;
-                SelectedText = selectedKind.DisplayValue;
+                SelectedText = selectedKind.Value + " : " + selectedKind.DisplayValue;
             }
             catch (Exception e)
             {
@@ -144,7 +144,14 @@ namespace OurBudgets.ViewModels
             {
                 if (CheckInputData())
                 {
-                    RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
+                    if (messageService.Question("入力情報送信いたします\nよろしいですか？") == System.Windows.MessageBoxResult.OK) 
+                    {
+                        RequestClose?.Invoke(new DialogResult(ButtonResult.OK)); 
+                    }
+                    else 
+                    {
+                        //入力に戻る
+                    }
                 }
             }
             catch (Exception e)
