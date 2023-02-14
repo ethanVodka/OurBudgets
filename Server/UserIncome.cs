@@ -12,22 +12,63 @@ namespace OurBudgets.Server
     {
         public UserIncome(int income, IncomeKind kind, DateTime date, string source)
         {
-
-            //コンストラクター
-
+            Value = income;
+            Kind = kind;
+            Date = date;
+            Source = source;
         }
 
 
-        public IncomeKind Kind { get; set; }
-        public int Value { get; set; }
-        public DateTime Date { get; set; }
-        public string Source { get; set; }     
+        private IncomeKind Kind { get; set; }
+        private int Value { get; set; }
+        private DateTime Date { get; set; }
+        private string Source { get; set; }     
         
 
         //複数収入取得
         public bool GetIncome(Data.Span span)
         {
-            return true;
+            DateTime tmp = DateTime.Today;
+
+            switch (span)
+            {
+                case Span.Week:
+                    if (Date >= tmp.AddDays(-7))
+                        return true;
+                    break;
+
+                case Span.Month:
+                    if (Date >= tmp.AddMonths(-1))
+                        return true;
+                    break;
+
+                case Span.Year:
+                    if (Date >= tmp.AddYears(-1))
+                        return true;
+                    break;
+            }
+
+            return false;
+        }
+
+        public int GetValue()
+        {
+            return Value;
+        }
+
+        public IncomeKind GetKind()
+        {
+            return Kind;
+        }
+
+        public DateTime GetDate()
+        {
+            return Date;
+        }
+
+        public string GetSource()
+        {
+            return Source;
         }
     }
 }

@@ -11,18 +11,18 @@ namespace OurBudgets.Server
 {
     public class UserExpense
     {
-        public UserExpense(int income, ExpenseKind kind, DateTime date, string destination)
+        public UserExpense(int expense, ExpenseKind kind, DateTime date, string payee)
         {
-            Value = income;
+            Value = expense;
             Kind = kind;
             Date = date;
-            Destination = destination;
+            Payee = payee;
         }
 
-        public ExpenseKind Kind { get; set; }
-        public int Value { get; set; }
-        public DateTime Date { get; set; }
-        public string Destination { get; set; }
+        private ExpenseKind Kind { get; set; }
+        private int Value { get; set; }
+        private DateTime Date { get; set; }
+        private string Payee { get; set; }
 
 
         //Todayから引数であるSpanの区間での支出データならtrueをそうでなければfalseを出力
@@ -50,6 +50,26 @@ namespace OurBudgets.Server
 
             return false;
 
+        }
+
+        public int GetValue()
+        {
+            return Value;
+        }
+
+        public ExpenseKind GetKind()
+        {
+            return Kind;
+        }
+
+        public DateTime GetDate()
+        {
+            return Date;
+        }
+
+        public string GetPayee()
+        {
+            return Payee;
         }
     }
 }
