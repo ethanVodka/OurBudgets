@@ -17,29 +17,31 @@ namespace OurBudgets.Server
         private int UserId { get; set; }
         private string UserName { get; set; }
 
-        //初期化として収入情報リストUserIncomes、支出情報リストUserExpenseを宣言
-        public UserBudget()
+        //初期化としてIDと名前の設定、収入情報リストUserIncomes、支出情報リストUserExpenseを宣言
+        public UserBudget(int userid, string username)
         {
-            var UserIncomes = new List<UserIncome>();
-            var UserExpenses = new List<UserExpense>();
+            var UserId = userid;
+            var UserName = username;
+            UserIncomes = new List<UserIncome>();
+            UserExpenses = new List<UserExpense>();
         }
 
 
         //新しい収入情報をUserIncomesリストに追加
-        public void SetUserIncome(int income, Data.IncomeKind kind, DateTime date, string source)
+        public void SetUserIncome(int income, IncomeKind kind, DateTime date, string source)
         {
-            UserIncome hoge = new UserIncome(income, kind, date, source);
-            UserIncomes.Add(hoge);
+            UserIncome userincome = new UserIncome(income, kind, date, source);
+            UserIncomes.Add(userincome);
         }
         //新しい支出情報をUserExpnseリストに追加
-        public void SetUserExpense(int expense, Data.ExpenseKind kind, DateTime date, string payee)
+        public void SetUserExpense(int expense, ExpenseKind kind, DateTime date, string payee)
         {
-            UserExpense hoge = new UserExpense(expense, kind, date, payee);
-            UserExpenses.Add(hoge);
+            UserExpense userexpense = new(expense, kind, date, payee);
+            UserExpenses.Add(userexpense);
         }
 
         //一定期間のデータ取得
-        public int LoadBudget(Data.Span span)
+        public int LoadBudget(Span span)
         {
             //インスタンスの宣言
             var spanIncomes = new List<UserIncome>();//探索範囲内の収入情報を格納するリスト
