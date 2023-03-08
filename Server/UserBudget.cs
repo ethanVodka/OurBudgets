@@ -17,33 +17,57 @@ namespace OurBudgets.Server
         private int UserId { get; set; }
         private string UserName { get; set; }
 
-
-        public void SetUserIncome(int income, Data.IncomeKind kind, string date, string source)
+        //初期化としてIDと名前の設定、収入情報リストUserIncomes、支出情報リストUserExpenseを宣言
+        public UserBudget(int userid, string username)
         {
-            //
-            //
-            //
-            //
-            //
+            var UserId = userid;
+            var UserName = username;
+            UserIncomes = new List<UserIncome>();
+            UserExpenses = new List<UserExpense>();
         }
 
-        public void SetUserExpense(int expense, Data.IncomeKind kind, string date, string destination)
+
+        //新しい収入情報をUserIncomesリストに追加
+        public void SetUserIncome(int income, IncomeKind kind, DateTime date, string source)
         {
-            //
-            //
-            //
-            //
-            //
+            UserIncome userincome = new UserIncome(income, kind, date, source);
+            UserIncomes.Add(userincome);
+        }
+        //新しい支出情報をUserExpnseリストに追加
+        public void SetUserExpense(int expense, ExpenseKind kind, DateTime date, string payee)
+        {
+            UserExpense userexpense = new(expense, kind, date, payee);
+            UserExpenses.Add(userexpense);
         }
 
         //一定期間のデータ取得
-        public void LoadBudget(Data.Span span)
+        public int LoadBudget(Span span)
         {
-            //
-            //
-            //
-            //
-            //
+            //インスタンスの宣言
+            var spanIncomes = new List<UserIncome>();//探索範囲内の収入情報を格納するリスト
+            var spanExpenses = new List<UserExpense>();//探索範囲内の支出情報を格納するリスト
+            int sumIncome = 0;                      //収入の合計値
+            int sumExpense = 0;                     //支出の合計値
+            int result = 0;                         //収支の合計値
+
+
+            //関数GetIncomeを使って期間内のインスタンスをspanIncomesに格納しその要素ValueをsumIncomeに加算
+            spanIncomes = UserIncomes.FindAll(n => n.GetIncome(span));  
+            spanIncomes.ForEach(n =>
+            {
+                sumIncome += n.GetValue();
+            });
+
+            //関数GetExpenseを使って期間内のインスタンスをspanExpensesに格納しその要素ValueをsumExpenseに加算
+            spanExpenses = UserExpenses.FindAll(n => n.GetExpense(span));
+            spanExpenses.ForEach(n =>
+            {
+                sumExpense += n.GetValue();
+            });
+
+            result = sumIncome - sumExpense;            //算出した収支それぞれの合計から期間内の収支を計算
+            return result;
+
         }
     }
 }
